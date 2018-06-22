@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div style="text-align: center;">
+      <video id="video" width="640" height="480" controls />
+    </div>
+    <script>
+      window.onload = function() {
+          const link = encodeURIComponent(window.location.hash.substr(1));
+          const video = document.getElementById('video');
+          const source = document.createElement('source');
+          source.setAttribute('src', `http://localhost:3000/video?link=${link}`);
+          video.appendChild(source);
+          video.load();
+          video.play();
+      }
+  </script>
+  </body>
+</html>
